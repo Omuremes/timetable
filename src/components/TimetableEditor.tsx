@@ -162,8 +162,15 @@ export default function TimetableEditor({
                         : 'bg-white text-gray-700'
                     }`}
                   >
-                    <div className="whitespace-nowrap text-sm sm:text-base">
-                      {timeSlot.start} - {timeSlot.end}
+                    <div className="text-xs sm:text-base">
+                      <div className="hidden sm:block">
+                        {timeSlot.start} - {timeSlot.end}
+                      </div>
+                      <div className="block sm:hidden text-[9px] leading-tight text-center">
+                        <div>{timeSlot.start}</div>
+                        <div>-</div>
+                        <div>{timeSlot.end}</div>
+                      </div>
                     </div>
                     {timeSlot.label && (
                       <div className="text-xs sm:text-sm text-gray-500 mt-1">

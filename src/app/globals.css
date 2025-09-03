@@ -127,12 +127,46 @@ body {
     min-width: 65px;
     max-width: 65px;
     width: 65px;
+    font-size: 10px;
   }
   
   /* Каждый день недели минимальная ширина */
   .timetable-table th:not(:first-child),
   .timetable-table td:not(:first-child) {
-    min-width: 60px;
+    min-width: 55px;
+  }
+}
+
+/* Стили для очень маленьких экранов (320px и меньше) */
+@media (max-width: 320px) {
+  .timetable-table {
+    font-size: 10px;
+  }
+  
+  .timetable-table th,
+  .timetable-table td {
+    padding: 3px 1px;
+  }
+  
+  .timetable-table input {
+    font-size: 10px;
+    padding: 2px 3px;
+    min-height: 26px;
+  }
+  
+  .timetable-table th:first-child,
+  .timetable-table td:first-child {
+    min-width: 55px;
+    max-width: 55px;
+    width: 55px;
+    font-size: 9px;
+    padding: 2px 1px;
+  }
+  
+  /* Каждый день недели минимальная ширина */
+  .timetable-table th:not(:first-child),
+  .timetable-table td:not(:first-child) {
+    min-width: 48px;
   }
 }
 
