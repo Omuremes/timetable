@@ -133,18 +133,18 @@ export default function TimetableEditor({
         </div>
       </div>
 
-      <div className="p-2 sm:p-6">
+      <div className="p-3 sm:p-6">
         <div className="overflow-x-auto">
           <table className="w-full border-collapse timetable-table">
             <thead>
               <tr>
-                <th className="border border-gray-300 p-1 sm:p-3 bg-gray-50 text-left font-medium text-gray-700 text-xs sm:text-sm">
+                <th className="border border-gray-300 p-2 sm:p-3 bg-gray-50 text-left font-medium text-gray-700 text-sm sm:text-base">
                   Время
                 </th>
                 {Object.entries(dayNames).map(([key, name]) => (
                   <th
                     key={key}
-                    className="border border-gray-300 p-1 sm:p-3 bg-gray-50 text-center font-medium text-gray-700 min-w-[80px] sm:min-w-[120px] text-xs sm:text-sm"
+                    className="border border-gray-300 p-2 sm:p-3 bg-gray-50 text-center font-medium text-gray-700 min-w-[85px] sm:min-w-[120px] text-sm sm:text-base"
                   >
                     <span className="sm:hidden">{name}</span>
                     <span className="hidden sm:inline">{dayNamesLong[key as keyof typeof dayNamesLong]}</span>
@@ -156,17 +156,17 @@ export default function TimetableEditor({
               {timeSlots.map((timeSlot) => (
                 <tr key={timeSlot.id}>
                   <td
-                    className={`border border-gray-300 p-1 sm:p-3 font-medium text-xs sm:text-sm ${
+                    className={`border border-gray-300 p-2 sm:p-3 font-medium text-sm sm:text-base ${
                       timeSlot.isBreak
                         ? 'bg-yellow-50 text-yellow-800'
                         : 'bg-white text-gray-700'
                     }`}
                   >
-                    <div className="whitespace-nowrap">
+                    <div className="whitespace-nowrap text-sm sm:text-base">
                       {timeSlot.start} - {timeSlot.end}
                     </div>
                     {timeSlot.label && (
-                      <div className="text-xs text-gray-500 mt-1">
+                      <div className="text-xs sm:text-sm text-gray-500 mt-1">
                         {timeSlot.label}
                       </div>
                     )}
@@ -174,12 +174,12 @@ export default function TimetableEditor({
                   {Object.keys(dayNames).map((day) => (
                     <td
                       key={day}
-                      className={`border border-gray-300 p-1 sm:p-2 ${
+                      className={`border border-gray-300 p-2 sm:p-3 ${
                         timeSlot.isBreak ? 'bg-yellow-50' : 'bg-white'
                       }`}
                     >
                       {timeSlot.isBreak ? (
-                        <div className="text-center text-yellow-600 font-medium text-xs sm:text-sm">
+                        <div className="text-center text-yellow-600 font-medium text-sm sm:text-base">
                           {timeSlot.label}
                         </div>
                       ) : isEditing ? (
@@ -197,11 +197,11 @@ export default function TimetableEditor({
                               e.target.value
                             )
                           }
-                          className="w-full p-1 sm:p-2 text-gray-700 border border-gray-200 rounded focus:border-blue-500 focus:outline-none text-xs sm:text-sm"
+                          className="w-full p-2 sm:p-2 text-gray-700 border border-gray-200 rounded focus:border-blue-500 focus:outline-none text-sm sm:text-base"
                           placeholder="Предмет"
                         />
                       ) : (
-                        <div className="text-center p-1 sm:p-2 text-xs sm:text-sm text-gray-700">
+                        <div className="text-center p-2 sm:p-2 text-sm sm:text-base text-gray-700 break-words">
                           {currentTimetable.schedule[
                             day as keyof Timetable['schedule']
                           ][timeSlot.id] || '-'}
