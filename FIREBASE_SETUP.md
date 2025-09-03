@@ -20,21 +20,24 @@
    - Введите название приложения
    - Скопируйте объект firebaseConfig
 
-4. **Обновите файл firebase.ts:**
-   - Откройте файл `src/lib/firebase.ts`
-   - Замените значения в объекте firebaseConfig на ваши реальные данные:
+4. **Настройте переменные окружения:**
+   - Скопируйте файл `.env.example` в `.env.local`:
+     ```bash
+     cp .env.example .env.local
+     ```
+   - Откройте файл `.env.local` и замените значения на ваши реальные данные из Firebase:
 
-```javascript
-const firebaseConfig = {
-  apiKey: "ваш-api-key",
-  authDomain: "ваш-проект.firebaseapp.com",
-  projectId: "ваш-project-id",
-  storageBucket: "ваш-проект.appspot.com",
-  messagingSenderId: "ваш-sender-id",
-  appId: "ваш-app-id",
-  measurementId: "ваш-measurement-id" // необязательно
-};
+```bash
+NEXT_PUBLIC_FIREBASE_API_KEY=ваш-api-key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=ваш-проект.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=ваш-project-id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=ваш-проект.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=ваш-sender-id
+NEXT_PUBLIC_FIREBASE_APP_ID=ваш-app-id
+NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID=ваш-measurement-id
 ```
+
+**ВАЖНО:** Никогда не коммитьте файл `.env.local` в git! Он уже добавлен в `.gitignore`.
 
 5. **Настройте правила безопасности Firestore (для разработки):**
    - В консоли Firebase перейдите в Firestore Database -> Правила
